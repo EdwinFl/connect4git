@@ -1,0 +1,6 @@
+package client;
+
+public class Player {
+	private String name;
+	
+}

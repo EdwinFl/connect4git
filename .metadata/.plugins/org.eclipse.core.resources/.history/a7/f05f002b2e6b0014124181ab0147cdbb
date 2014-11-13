@@ -1,0 +1,10 @@
+package client;
+
+public class Board {
+	public static final String[][] = {{},{}};
+	
+	public Board()
+	{
+		
+	}
+}

@@ -1,0 +1,21 @@
+package client;
+
+public class Board {
+	private int[][] board;
+	public static final int[][] BOARD_INIT = {{0,0,0,0,0,0,0},
+											  {0,0,0,0,0,0,0},
+											  {0,0,0,0,0,0,0},
+											  {0,0,0,0,0,0,0},
+											  {0,0,0,0,0,0,0},
+											  {0,0,0,0,0,0,0}};
+	
+	public Board()
+	{
+		board = BOARD_INIT;
+	}
+	
+	public void draw()
+	{
+		System.out.println(board[0][0]);
+	}
+}

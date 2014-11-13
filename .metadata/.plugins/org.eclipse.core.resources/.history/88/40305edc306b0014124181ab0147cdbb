@@ -1,0 +1,15 @@
+package client;
+
+public class Disc {
+	public static int disc = 1;
+	
+	public Disc()
+	{
+		
+	}
+	
+	public int getDiscNumber
+	{
+		
+	}
+}

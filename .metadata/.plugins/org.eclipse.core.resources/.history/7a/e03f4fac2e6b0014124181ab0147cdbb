@@ -1,0 +1,11 @@
+package client;
+
+public class Board {
+	public static final int[][] BOARD_INIT = {{1}};
+	private int[][] board;
+	
+	public Board()
+	{
+		board[0][1] = {{1},{1}};
+	}
+}
