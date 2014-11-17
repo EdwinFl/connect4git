@@ -1,17 +1,42 @@
 package client;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Game {
-	private Player p1;
-	private Player p2;
 	private Board board;
+	public static boolean RUNNING=true;
+	private Scanner scanner;
+	private ArrayList<Player> players;
 	
 	public Game()
 	{
-		p1 = new Player("Henk");
-		p2 = new Player("Piet");
+		scanner = new Scanner(System.in);
+		players = new ArrayList<Player>();
+		players.add(new Player("Henkie"));
+		players.add(new Player("Jaap"));
 		TUI tui = new TUI();
 		board = new Board();
+		tui.showWelcomeMessage();
 		tui.showBoard(board);
+		int input=0;
+		
+		while(RUNNING)
+		{
+			for(Player player:players)
+			{
+				tui.askMoveOfPlayer(player);
+				input = scanner.nextInt();
+				board.addDisc(input, player);
+				tui.showBoard(board);
+				RUNNING = !board.checkWin(player);
+				if(!RUNNING)
+				{
+					break;
+				}
+			}
+			RUNNING = !board.checkDraw();
+		}
 	}
 	
 	public static void main(String args[])

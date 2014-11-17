@@ -29,12 +29,33 @@ public class Board {
 	
 	public void addDisc(int row, Player p)
 	{
-		for(int i=board.length;i>=0;i--)
+		for(int i=board.length;i>0;i--)
 		{
-			if(board[i][row] != 0)
+			System.out.println(i);
+			if(board[i-1][row-1]== 0)
 			{
-				board[i][row] = p.getDisc().getDiscNumber();
+				board[i-1][row-1] = p.getDisc().getDiscNumber();
+				i=0;
 			}
 		}
+	}
+
+	public boolean checkWin(Player p) 
+	{
+		return false;
+	}
+	
+	public boolean checkDraw()
+	{
+		boolean draw = true;
+		for(int i=0;i<board[0].length;i++)
+		{
+			if(board[board.length-1][i] == 0)
+			{
+				draw = false;
+			}
+		}
+		
+		return draw;
 	}
 }

@@ -14,4 +14,9 @@ public class Player {
 	{
 		return disc;
 	}
+	
+	public String getName()
+	{
+		return name;
+	}
 }
