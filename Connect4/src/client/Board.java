@@ -77,6 +77,9 @@ public class Board {
 			int hSteps = 1;
 			while(!horR && counted<counter){
 				if(!horL){
+					if((lastMoveX - hSteps)<0){
+						horL = false;
+					}
 					if(board[lastMoveY][lastMoveX-hSteps] == number){
 						counted += 1;
 						hSteps +=1;
