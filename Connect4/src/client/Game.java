@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Game {
 	private Board board;
-	public static boolean RUNNING=true;
+	public boolean RUNNING=true;
+	private boolean won=false;
 	private Scanner scanner;
 	private ArrayList<Player> players;
 	
