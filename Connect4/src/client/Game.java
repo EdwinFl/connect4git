@@ -45,14 +45,19 @@ public class Game {
 					input = scanner.nextInt();
 					board.addDisc(input, team);
 					tui.showBoard(board);
-					running = !board.checkWin(player);
+					running = !board.checkWin(team);
+					System.out.println(running);
 					if(!running)
 					{
 						break;
 					}
 				}
+				if(!running)
+				{
+					break;
+				}
 			}
-			running = !board.checkDraw();
+			//running = !board.checkDraw();
 		}
 	}
 	

@@ -37,7 +37,7 @@ public class Board {
 			if(board[i-1][row-1]== 0)
 			{
 				board[i-1][row-1] = t.getDisc().getDiscNumber();
-				i=0;
+				
 				lastMoveY = i-1;
 				lastMoveX = row-1;
 				i=0;
@@ -55,18 +55,19 @@ public class Board {
 		int counted = 1;
 		boolean vert = false;
 		int vSteps = 1;
-		if((lastMoveY - counter) < 0){
-			vert = true;
-		}
+		
 		while(!vert && counted<counter) {
-			if(board[lastMoveY-vSteps][lastMoveX] == number){
-				counted += 1;
-				vSteps +=1;
-				win = counted==counter;
-				
+			if((lastMoveY + vSteps) > board.length-1){
+			vert = true;
 			} else {
-				vert = true;
-				counted = 1;
+				if(board[lastMoveY+vSteps][lastMoveX] == number){
+					counted += 1;
+					vSteps +=1;
+					win = counted==counter;
+				} else {
+					vert = true;
+					counted = 1;
+				}
 			}
 		}
 		
