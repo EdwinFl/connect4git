@@ -53,7 +53,32 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Windows Installer files
+*.index
 *.cab
 *.msi
 *.msm
 *.msp
+*.zip
+*.zip
+*.markers
+*.dat
+*.index
+*.tree
+*.resources
+*.prefs
+*.prefs
+*.prefs
+*.prefs
+*.xmi
+*.tmp
+.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
+*.txt
+*.dat
+*.xml
+*.xml
+*.xml
+*.properties
+*.dat
+*.zip
