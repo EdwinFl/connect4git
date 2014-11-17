@@ -9,6 +9,9 @@ public class Board {
 											  {0,0,0,0,0,0,0},
 											  {0,0,0,0,0,0,0}};
 	
+	private int lastMoveX;
+	private int lastMoveY;
+	
 	public Board()
 	{
 		board = BOARD_INIT;
@@ -35,13 +38,27 @@ public class Board {
 			{
 				board[i-1][row-1] = p.getDisc().getDiscNumber();
 				i=0;
+				lastMoveY = i-1;
+				lastMoveX = row-1;
 			}
 		}
 	}
 
 	public boolean checkWin(Player p) 
 	{
-		return false;
+		boolean win = false;
+		Disc d = p.getDisc();
+		
+		int number = d.getDiscNumber();
+		if(	board[lastMoveY][lastMoveX-1] == number 
+			&& board[lastMoveY][lastMoveX-2] == number
+			&& board[lastMoveY][lastMoveX-3] == number)
+		{
+			win = true;		
+		}
+		
+		
+		return win;
 	}
 	
 	public boolean checkDraw()
