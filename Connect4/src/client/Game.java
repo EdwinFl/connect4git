@@ -34,11 +34,13 @@ public class Game {
 		tui.showWelcomeMessage();
 		tui.showBoard(board);
 		int input=0;
+		Team currentTeam = null;
 		
 		while(running)
 		{
 			for(Team team:teams)
 			{
+				currentTeam = team;
 				for(Player player:team.getPlayers())
 				{
 					tui.askMoveOfPlayer(player);
@@ -59,6 +61,8 @@ public class Game {
 			}
 			//running = !board.checkDraw();
 		}
+		
+		tui.showWinnerMessage(currentTeam);
 	}
 	
 	public static void main(String args[])
