@@ -9,8 +9,9 @@ public class Game {
 	{
 		p1 = new Player("Henk");
 		p2 = new Player("Piet");
+		TUI tui = new TUI();
 		board = new Board();
-		board.draw();
+		tui.showBoard(board);
 	}
 	
 	public static void main(String args[])
