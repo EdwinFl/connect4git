@@ -6,11 +6,18 @@ public class Team {
 	private int teamID;
 	private static int lastID = -1;
 	private ArrayList<Player> players;
+	private Disc disc;
 	
 	public Team()
 	{
 		teamID=lastID+1;
 		players = new ArrayList<Player>();
+		disc = new Disc();
+	}
+	
+	public Disc getDisc()
+	{
+		return disc;
 	}
 	
 	public ArrayList<Player> getPlayers()

@@ -30,13 +30,13 @@ public class Board {
 		}
 	}
 	
-	public void addDisc(int row, Player p)
+	public void addDisc(int row, Team t)
 	{
 		for(int i=board.length;i>0;i--)
 		{
 			if(board[i-1][row-1]== 0)
 			{
-				board[i-1][row-1] = p.getDisc().getDiscNumber();
+				board[i-1][row-1] = t.getDisc().getDiscNumber();
 				i=0;
 				lastMoveY = i-1;
 				lastMoveX = row-1;
@@ -44,10 +44,10 @@ public class Board {
 		}
 	}
 
-	public boolean checkWin(Player p) 
+	public boolean checkWin(Team t) 
 	{
 		boolean win = false;
-		Disc d = p.getDisc();
+		Disc d = t.getDisc();
 		
 		int number = d.getDiscNumber();
 		if(	board[lastMoveY][lastMoveX-1] == number 

@@ -9,8 +9,7 @@ public class Game {
 	private boolean won;
 	private Scanner scanner;
 	private ArrayList<Player> players;
-	private Team team1;
-	private Team team2;
+	private ArrayList<Team> teams;
 	
 	public Game()
 	{
@@ -18,10 +17,17 @@ public class Game {
 		won=false;
 		scanner = new Scanner(System.in);
 		players = new ArrayList<Player>();
+		teams = new ArrayList<Team>();
+		teams.add(new Team());
+		teams.add(new Team());
 		players.add(new Player("Henkie"));
 		players.add(new Player("Jaap"));
 		players.add(new Player("Henkie2"));
 		players.add(new Player("Jaap2"));
+		teams.get(0).addPlayer(players.get(0));
+		teams.get(0).addPlayer(players.get(2));
+		teams.get(1).addPlayer(players.get(1));
+		teams.get(1).addPlayer(players.get(3));
 		
 		TUI tui = new TUI();
 		board = new Board();
@@ -31,16 +37,19 @@ public class Game {
 		
 		while(running)
 		{
-			for(Player player:players)
+			for(Team team:teams)
 			{
-				tui.askMoveOfPlayer(player);
-				input = scanner.nextInt();
-				board.addDisc(input, player);
-				tui.showBoard(board);
-				running = !board.checkWin(player);
-				if(!running)
+				for(Player player:team.getPlayers())
 				{
-					break;
+					tui.askMoveOfPlayer(player);
+					input = scanner.nextInt();
+					board.addDisc(input, team);
+					tui.showBoard(board);
+					running = !board.checkWin(player);
+					if(!running)
+					{
+						break;
+					}
 				}
 			}
 			running = !board.checkDraw();
